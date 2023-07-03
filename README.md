@@ -1,3 +1,4 @@
 Для деплою на render.com:
-в requirements додати gunicorn. також додав бібліотеку yfinance, просто не побачило при білдінгу з імпорту.
-стартова команда "gunicorn application:app" (як розумію: application - стартова програма на пітоні)
+в requirements додати gunicorn.
+Також додав бібліотеку yfinance, без цього не побачило при білдінгу просто при наявності інструкції import.
+Стартова команда "gunicorn application:app" (application - стартова програма на пітоні, app - завжди.)
