@@ -10,7 +10,7 @@
 
 Space
 Зайти в акаунт на deta.space
-Встановити Space CLI curl -fsSL https://get.deta.dev/space-cli.sh | sh
+Встановити Space CLI curl -fsSL https://get.deta.dev/space-cli.sh | sh (можливо, не обовʼязково, поскльки вже встановлювалось не раз)
 В іншому вікні терміналу залогінитись в системі через space login. Спочатку на сайті в налашуваннях створити токен. Потрібно буде ввести для логіну.
 Після логіну запустити реліз space push.
 Утвориться файл Spacefile, де потрібно додати "run: gunicorn application:app" (application - назва основного файлу пітон), додати public_routes:
