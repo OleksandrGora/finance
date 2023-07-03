@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% set symbol = response["symbol"] %}
+{% set price = response["price"] %}
+{% set company = response["name"] %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <div class="container py-5 text-center">
+        <p>
+            A share of {{symbol}} ({{company}}) costs {{price}}.
+        </p>
+    </div>
+{% endblock %}

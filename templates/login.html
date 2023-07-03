@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/login" method="post" class="needs-validation" novalidate>
+        <div class="form-group p-2">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" required>
+            <div class="invalid-feedback">Can not be empty.</div>
+        </div>
+        <div class="form-group p-2">
+            <input class="form-control" name="password" placeholder="Password" type="password" required>
+            <div class="invalid-feedback">Can not be empty.</div>
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+{% endblock %}

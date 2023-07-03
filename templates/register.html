@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post" id="registerForm">
+        <div class="form-group p-2">
+            <input autocomplete="off" autofocus class="form-control" name="username" id="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group p-2">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group p-2">
+            <input class="form-control" name="confirmation" placeholder="Password confirmation" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <script>
+        let name = document.getElementById('username');
+            name.onkeyup = function() {
+                console.log(name.value);
+                let form = document.getElementById('registerForm');
+                $.get('/check?username=' + name.value, function(data) { //data - отримана від сервера відповідь
+                    console.log(data);
+                    if (!data["avalaible"]){
+                        console.log("prevented default");
+                        form.addEventListener("submit", function(event) { 
+                            //alert("The username exists. Choose a new one.");//чомусь все одно видається при вірних даних
+                            event.preventDefault();
+                            });
+                    }
+                    else{
+                        console.log("set default");
+                        form.addEventListener("submit", function(event) {
+                            form.submit();
+                            });
+                    }
+                });
+                };
+    </script>
+{% endblock %}

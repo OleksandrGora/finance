@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th class="text-start" scope="col" colspan="3">Symbol</th>
+      <th class="text-start" scope="col">Name</th>
+      <th class="text-end" scope="col">Shares</th>
+      <th class="text-end" scope="col">Price</th>
+      <th class="text-end" scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in result %}
+    <tr>      
+        <td class="text-start">{{r["symbol"]}}</td>
+        <td class="text-start"><a href="/sell?symbol={{r['symbol']}}">Sell</a></td>
+        <td class="text-start"><a href="/buy?symbol={{r['symbol']}}">Buy</a></td>
+        <td class="text-start">{{r["name"]}}</td>
+        <td class="text-end">{{r["shares"]}}</td>
+        <td class="text-end">{{r["price"]}}</td>
+        <td class="text-end">{{r["sum"]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+        <td class="text-end" colspan="6"><b>Cash</b></td>
+        <td class="text-end"><b>{{cash}}</b></td>
+    </tr>
+    <tr>
+      <td class="text-end" colspan="6"><b>Total</b></td>
+      <td class="text-end"><b>{{total}}</b></td>
+    </tr>
+</tfoot>
+</table>
+{% endblock %}
+

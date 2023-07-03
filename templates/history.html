@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th class="text-start" scope="col">Symbol</th>
+      <th class="text-end" scope="col">Shares</th>
+      <th class="text-end" scope="col">Price</th>
+      <th class="text-end" scope="col">Transacted</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in result %}
+    <tr>      
+        <td class="text-start"> {{r["symbol"]}}</td>
+        <td class="text-end">{{r["shares"]}}</td>
+        <td class="text-end">{{r["price"]}}</td>
+        <td class="text-end">{{r["timestamp"]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+

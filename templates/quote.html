@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+  <form action="/quote" method="post" class="needs-validation" novalidate>
+    <div class="p-2 form-group">
+        <input autocomplete="off" autofocus class="form-control" name="quote" placeholder="Quote" type="text" id="quote" required>
+        <div class="invalid-feedback">Please enter a symbol.</div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Quote</button>
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+  <form action="/sell" method="post">
+    
+    <div>
+      <select class="form-select-lg mb-3" name="symbol" id="select-symbol">
+        <option disabled selected>Symbol</option>
+        {% for r in result %}     
+            <option value='{{r["symbol"]}}'>{{r["symbol"]}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    
+    <div class="form-group p-2">
+        <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Sell</button>
+    </div>
+  </form>
+  
+  <script>
+    //console.log('{{symbol}}')
+    document.getElementById('select-symbol').value = '{{symbol}}';
+    //$('#select-symbol').val('{{symbol}}');//ткаож працює
+  </script>
+{% endblock %}

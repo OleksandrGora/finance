@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+  <form  class="needs-validation" novalidate action="/buy" method="post">
+    <div class="p-2 form-group">
+        <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text" required value="{{symbol}}">
+        <div class="invalid-feedback">Can not be empty.</div>
+    </div>
+    
+    <div class="p-2 form-group">
+        <input class="form-control" name="shares" placeholder="Shares" type="number" required>
+        <div class="invalid-feedback">
+          Please provide a share.
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Buy</button>
+  </form>
+{% endblock %}
