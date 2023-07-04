@@ -267,7 +267,7 @@ def buy():
     else:
         """Get stock quote."""
         symbol = request.args.get("symbol")
-        return render_template("buy.html",symbol=symbol)
+        return render_template("buy.html", symbol=symbol)
 
 
 @app.route("/sell", methods=["GET", "POST"])
@@ -288,7 +288,7 @@ def sell():
             user_id,
             symbol,
         )
-
+        print(result)
         if len(result) == 0 or result[0]["shares"] < shares:
             return apology("choose correct symbol or enter correct share number", 403)
 
@@ -335,7 +335,7 @@ def sell():
         )
         symbol = request.args.get("symbol")
 
-        return render_template("sell.html", result=result,symbol=symbol)
+        return render_template("sell.html", result=result, symbol=symbol)
 
 
 @app.route("/check", methods=["GET"])
@@ -429,7 +429,7 @@ def refill():
             refill = float(refill)
         except:
             return apology("must provide correct amount", 403)
-        
+
         if not refill or refill <= 0:
             return apology("must provide correct amount", 403)
 
