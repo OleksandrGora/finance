@@ -7,7 +7,7 @@
 {% block main %}
     <form action="/refill" method="post" novalidate class="needs-validation">
         <div class="form-group p-2">
-            <input class="form-control" name="refill" placeholder="Amount" type="number" required step="0.01">
+            <input class="form-control" name="refill" placeholder="Amount" type="number" required step="0.01" autofocus>
         </div>
         <button class="btn btn-primary" type="submit">Refill</button>
     </form>
