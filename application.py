@@ -335,6 +335,9 @@ def sell():
         )
         symbol = request.args.get("symbol")
 
+        if len(result) == 1:
+            symbol = result[0]['symbol']
+
         return render_template("sell.html", result=result, symbol=symbol)
 
 
